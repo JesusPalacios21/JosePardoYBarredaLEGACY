@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Legacy 2026 · Invitación</title>
+    <meta name="theme-color" content="#0a3320" />
+    <meta property="og:title" content="Legacy 2026 · Invitación" />
+    <meta
+      property="og:description"
+      content="Te invitamos a nuestra promoción · 5 de diciembre"
+    />
+    <meta
+      property="og:image"
+      content="https://TU-DOMINIO.vercel.app/img/principal.jpg"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,400&family=Pinyon+Script&family=Jost:wght@300;400;500&family=Cinzel:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <canvas id="fx"></canvas>
+    <div id="gate">
+      <div class="logo">
+        <img
+          src="img/logopardo.png"
+          alt="Logo de la institución"
+          onerror="this.remove()"
+        />
+      </div>
+      <p class="cap">Estás invitado</p>
+      <p class="tw" aria-label="Legacy 2026">
+        <b
+          ><span style="--n: 0">L</span><span style="--n: 1">E</span
+          ><span style="--n: 2">G</span><span style="--n: 3">A</span
+          ><span style="--n: 4">C</span><span style="--n: 5">Y</span></b
+        ><br /><b
+          ><span style="--n: 6">2</span><span style="--n: 7">0</span
+          ><span style="--n: 8">2</span><span style="--n: 9">6</span></b
+        ><i class="caret" aria-hidden="true"></i>
+      </p>
+      <p class="cap sub">Lo que dejamos, perdura</p>
+      <button class="btn" id="open">Abrir invitación</button>
+    </div>
+    <button id="mus" aria-label="Activar o silenciar música">🔊</button>
+
+    <header id="hero">
+      <div class="ph">
+        <div class="bg" id="hbg"></div>
+        <div class="hc">
+          <p class="cap" style="--i: 0">Nos graduamos</p>
+          <h1 class="scr" style="--i: 1">Legacy 2026</h1>
+          <p class="cap d" style="--i: 2">05 · Diciembre · 2026</p>
+          <p class="cap d" style="--i: 3; margin-top: 8px; opacity: 0.85">
+            I.E.E. José Pardo y Barreda
+          </p>
+        </div>
+      </div>
+      <div class="pn">
+        <p>Lo que dejamos, perdura.</p>
+        <span class="hrt">♥</span>
+      </div>
+    </header>
+
+    <section class="band white">
+      <div class="in">
+        <h2 class="scr rv">Nos complace invitarte</h2>
+        <div class="ln rv"></div>
+        <p class="txt rv">
+          Con inmensa alegría culminamos esta hermosa etapa de nuestras vidas.
+        </p>
+        <p class="txt rv">
+          Nos honra invitarte a compartir con nosotros la ceremonia y la fiesta
+          de nuestra promoción.
+        </p>
+        <p class="txt rv" style="color: var(--blue)">
+          Tu presencia hará este recuerdo aún más especial.
+        </p>
+      </div>
+    </section>
+
+    <section class="band blue">
+      <div class="in">
+        <h2 class="scr rv">Falta muy poco</h2>
+        <div class="ln rv"></div>
+        <div class="cd rv">
+          <div><b id="d">0</b><span>Días</span></div>
+          <div><b id="h">0</b><span>Horas</span></div>
+          <div><b id="m">0</b><span>Min</span></div>
+          <div><b id="s">0</b><span>Seg</span></div>
+        </div>
+        <div class="row rv" style="margin-top: 34px">
+          <a
+            class="btn"
+            target="_blank"
+            rel="noopener"
+            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Promoci%C3%B3n+Legacy+2026+-+I.E.E.+Jos%C3%A9+Pardo+y+Barreda&dates=20261206T010000Z/20261206T050000Z&location=Recepciones+Maritere,+Carretera+a+Sunampe+718,+Chincha"
+            >Guardar en calendario</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="band mist">
+      <div class="in">
+        <h2 class="scr rv">Nuestros graduados</h2>
+        <div class="ln rv"></div>
+        <p class="hint rv">Toca la foto para verla en grande</p>
+        <div class="gal rv">
+          <div
+            class="gstage"
+            id="gstage"
+            tabindex="0"
+            aria-label="Fotos grupales de la promoción"
+          ></div>
+          <button class="gb gp" id="pv" aria-label="Foto anterior">‹</button>
+          <button class="gb gn" id="nx" aria-label="Foto siguiente">›</button>
+        </div>
+        <div class="thumbs rv" id="thumbs"></div>
+        <div class="pb"><i id="pbi"></i></div>
+        <p class="cnt" id="cnt"></p>
+      </div>
+    </section>
+    <div id="lb" role="dialog" aria-label="Foto ampliada">
+      <img id="lbi" alt="" /><button aria-label="Cerrar">×</button>
+    </div>
+
+    <section class="band white" id="grow">
+      <div class="in">
+        <h2 class="scr rv">Enciende tu legado</h2>
+        <div class="ln rv"></div>
+        <p class="hint rv" id="ghint">Toca la tarjeta y enciende cada letra</p>
+        <div class="scene rv" id="scene">
+          <svg
+            id="gsvg"
+            viewBox="0 0 300 360"
+            role="img"
+            aria-label="La palabra LEGACY que se enciende letra por letra dentro de una corona de laurel"
+          >
+            <defs>
+              <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#cdeedb" />
+                <stop offset="1" stop-color="#f5fbf7" />
+              </linearGradient>
+              <radialGradient id="glow" cx=".5" cy=".5" r=".5">
+                <stop offset="0" stop-color="#7fcf9f" stop-opacity=".55" />
+                <stop offset="1" stop-color="#7fcf9f" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="leafG" x1="1" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#8fe0aa" />
+                <stop offset="1" stop-color="#17743f" />
+              </linearGradient>
+            </defs>
+            <rect width="300" height="360" rx="22" fill="url(#sky)" />
+            <circle
+              class="halo"
+              id="halo"
+              cx="150"
+              cy="190"
+              r="140"
+              fill="url(#glow)"
+            />
+            <g id="laurel"></g>
+            <g id="word">
+              <text class="lt" x="66" y="202" text-anchor="middle">L</text>
+              <text class="lt" x="100" y="202" text-anchor="middle">E</text>
+              <text class="lt" x="134" y="202" text-anchor="middle">G</text>
+              <text class="lt" x="168" y="202" text-anchor="middle">A</text>
+              <text class="lt" x="202" y="202" text-anchor="middle">C</text>
+              <text class="lt" x="236" y="202" text-anchor="middle">Y</text>
+              <text class="yr" x="150" y="236" text-anchor="middle">2026</text>
+            </g>
+            <g id="cap">
+              <path
+                class="cp2"
+                d="M118 85 V108 Q150 124 182 108 V85 L150 97Z"
+              />
+              <path class="cp1" d="M150 48 L214 72 L150 96 L86 72Z" />
+              <path class="cp3" d="M206 74 V104" />
+              <circle class="cp4" cx="206" cy="108" r="4.5" />
+            </g>
+            <g id="sparks"></g>
+          </svg>
+        </div>
+        <div class="gmeter rv" aria-hidden="true">
+          <i class="wd"></i><i class="wd"></i><i class="wd"></i
+          ><i class="wd"></i><i class="wd"></i><i class="wd"></i>
+        </div>
+        <div class="gdone" id="gdone" aria-live="polite">
+          <p class="scr">¡Legacy 2026!</p>
+          <p class="cap">Lo que dejamos, perdura</p>
+        </div>
+        <div class="row rv" style="margin-top: 22px">
+          <button class="btn rb" id="water" type="button">Encender ✨</button>
+          <button class="btn ol" id="again" type="button" hidden>
+            Volver a encender
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="band blue">
+      <div class="in">
+        <h2 class="scr rv">Programa</h2>
+        <div class="ln rv"></div>
+        <div class="tl">
+          <div class="rv">
+            <b>7:00 pm</b>
+            <article>
+              <h3>Recepción</h3>
+              <span>Bienvenida y fotos con los invitados</span>
+            </article>
+          </div>
+          <div class="rv">
+            <b>7:30 pm</b>
+            <article>
+              <h3>Ceremonia</h3>
+              <span>Entrega de diplomas y palabras de despedida</span>
+            </article>
+          </div>
+          <div class="rv">
+            <b>8:30 pm</b>
+            <article>
+              <h3>Brindis y vals</h3>
+              <span>Un momento para agradecer</span>
+            </article>
+          </div>
+          <div class="rv">
+            <b>9:00 pm</b>
+            <article>
+              <h3>Cena</h3>
+              <span>Compartimos la mesa en familia</span>
+            </article>
+          </div>
+          <div class="rv">
+            <b>10:00 pm</b>
+            <article>
+              <h3>Baile</h3>
+              <span>¡A celebrar toda la noche!</span>
+            </article>
+          </div>
+        </div>
+        <p class="rv" style="opacity: 0.7; margin-top: 14px; font-size: 0.9rem">
+          Horarios referenciales
+        </p>
+      </div>
+    </section>
+
+    <section class="band white">
+      <div class="in">
+        <h2 class="scr rv">¿Dónde será?</h2>
+        <div class="ln rv"></div>
+        <div class="card rv" style="padding-top: clamp(50px, 12vw, 90px)">
+          <p class="scr">Recepciones Maritere</p>
+          <p class="cap" style="margin: 8px 0">
+            Carretera a Sunampe N° 718 · Chincha
+          </p>
+          <p style="margin-bottom: 18px">Sábado 5 de diciembre · 7:00 p. m.</p>
+          <a
+            class="btn rb"
+            target="_blank"
+            rel="noopener"
+            href="https://www.google.com/maps/search/?api=1&query=Recepciones+Maritere+Carretera+a+Sunampe+718+Chincha+Peru"
+            >Cómo llegar</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="band mist">
+      <div class="in">
+        <h2 class="scr rv">Detalles</h2>
+        <div class="ln rv"></div>
+        <div class="g3">
+          <div class="rv">
+            <i aria-hidden="true">🤵</i>
+            <h3>Caballeros</h3>
+            <p>
+              Terno elegante, camisa, pantalón de vestir y zapatos formales.
+            </p>
+          </div>
+          <div class="rv">
+            <i aria-hidden="true">👗</i>
+            <h3>Damas</h3>
+            <p>Vestido o conjunto elegante, con calzado cómodo y formal.</p>
+          </div>
+          <div class="rv">
+            <i aria-hidden="true">⏰</i>
+            <h3>Puntualidad</h3>
+            <p>Llega unos minutos antes de las 8:00 p. m.</p>
+          </div>
+          <div class="rv">
+            <i aria-hidden="true">📸</i>
+            <h3>Fotos</h3>
+            <p>Habrá un espacio para el recuerdo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band blue" id="rsvp">
+      <div class="in">
+        <h2 class="scr rv">Confirma tu asistencia</h2>
+        <div class="ln rv"></div>
+        <form class="rv" onsubmit="return false;">
+          <label
+            >Tu nombre<input
+              id="nm"
+              placeholder="Nombre y apellido"
+              autocomplete="name"
+          /></label>
+          <label
+            >Personas que asistirán<select id="ng">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select></label
+          >
+          <div class="row">
+            <button class="btn" id="yes" type="button">Sí, asistiré</button>
+            <button class="btn ol" id="no" type="button">No podré ir</button>
+          </div>
+          <div class="row" style="margin-top: 0">
+            <button class="btn ol" id="sh" type="button">
+              Compartir invitación
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer
+      class="band blue"
+      style="padding-bottom: 100px; background: #0a3320"
+    >
+      <div class="in rv">
+        <p class="scr">Gracias por ser parte de nuestra historia</p>
+        <p class="cap" style="margin-top: 14px">Legacy 2026</p>
+        <p style="opacity: 0.7">I.E.E. José Pardo y Barreda</p>
+      </div>
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
